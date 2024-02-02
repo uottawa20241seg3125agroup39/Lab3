@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Wall Mart Official Site</title>
+    <link rel="stylesheet" href="styles_lab3.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="products.js"></script>
+    <script src="main.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Wall✨Mart Online Grocery</h1>
+    </header>
+
+    <nav id="tab" class="tab">
+        <li><button id="user-button" onclick="loadpage(event, 'user')" class="not-selected">Start Shopping      >></button></li>
+        <li><button id="products-button" onclick="loadpage(event, 'products')" class="not-selected">Products      >></button></li>
+        <li><button id="cart-button" onclick="loadpage(event, 'cart')" class="not-selected">Cart      >></button></li>
+    </nav>
+
+
+    <div id="loading">
+        <h1>Loading.... You must enable JavaScript or use non-IE to continue</h1>
+    </div>
+
+    <div id="user" class="section" hidden="hidden">
+        <h1>Before we start...</h1>
+        <p>Choose your type and go to Products</p>
+        <p>Warning: Changing your preference will clear your cart!</p>
+        <select id="userType" onchange="changePreferenceType(event)">
+            <option value="normal" selected>Normal</option>
+            <option value="vegan">Vegan</option>
+            <option value="gluten-free">Gluten Free</option>
+        </select>
+    </div>
+<!--new! font change feature (button)-->
+    <div id="products" class="section" hidden="hidden">
+    <div class="font-change">
+        <button class="font-change-btn" onClick="toggleFontSize('products')"></button>
+    </div>
+    <h2>Products</h2>
+    <hr>
+<!--    new! search bar-->
+    <div class = "search-bar">
+        <input type="text" id="search-input" placeholder="search for your ..." oninput="onSearch()">
+        <button type="submit"><i class="itemSearch"></i></button>
+    </div>
+<!--new! price slider-->
+    <div class="price-slider">
+        <div class="min-price">Min price: 0</div>
+        <div class="max-price">Max price: 90</div>
+        <label for="minPrice">Min price:</label>
+        <input type="range" id="minPrice" class="slider" min="0" max="100" value="10" oninput="rangeValue.innerText = this.value">
+        <p id="rangeValue">100</p> <!----另一种method-->
+        <label for="maxPrice">Max price:</label>
+        <input type="range" id="maxPrice" class="slider" min="0" max="100" value="90" >
+        <span id="priceRangeValue">$10 - $90</span>
+    </div>
+
+    <div id="productList" class="product-list">
+        <!-- Products will be dynamically updated based on the slider value -->
+    </div>
+
+    <h3 id="empty-sign">Empty</h3>
+    <form id="product-selection">
+
+    </form>
+    <p><button type="button" onclick="addProduct()" id="select-submission" hidden="hidden">Add to Cart</button></p>
+    </div>
+
+    <div id="cart" class="section" hidden="hidden">
+<!--    你看看换成button好的话就换一下吧-->
+    <div class="stepper-wrapper">
+        <div class="stepper-item completed">
+            <div class="step-counter">1</div>
+            <div class="step-name">Cart</div>
+        </div>
+        <div class="stepper-item completed">
+            <div class="step-counter">2</div>
+            <div class="step-name">Payment Method</div>
+        </div>
+        <div class="stepper-item completed">
+            <div class="step-counter">3</div>
+            <div class="step-name">Shipping</div>
+        </div>
+        <div class="stepper-item">
+            <div class="step-counter">4</div>
+            <div class="step-name">Order summary</div>
+        </div>
+    </div>
+
+
+    <!--    cart-->
+    <h3 id="cart-empty-sign">Empty</h3>
+    <form id="cart-selection">
+
+    </form>
+    <p><button type="button" onclick="removeProduct()" id="cart-submission" hidden="hidden">Remove from Cart</button></p>
+
+
+
+    <!-- new! Payment Form(hide) -->
+    <div class="form-container" style="display: none">
+        <div class="form-buttons">
+            <button type="button">Go Back</button>
+        </div>
+
+        <div class="form-field">
+            <label for="cardholder-name">Cardholder Name:</label>
+            <input type="text" id="cardholder-name" placeholder="Cardholder Name">
+        </div>
+
+        <div class="form-field">
+            <label for="card-number">Card Number:</label>
+            <input type="text" id="card-number" placeholder="XXXX XXXX XXXX XXXX">
+        </div>
+
+        <div class="form-field">
+            <label for="exp-date">Expiration Date:</label>
+            <input type="text" id="exp-date" placeholder="MM/YY">
+        </div>
+
+        <div class="form-field">
+            <label for="cvv">CVV:</label>
+            <input type="text" id="cvv" placeholder="CVV">
+        </div>
+
+        <div class="form-field">
+            <label for="zip-code-pay">Postal/ZIP Code:</label>
+            <input type="text" id="zip-code-pay" placeholder="Postal/ZIP">
+        </div>
+
+        <div class="form-buttons">
+            <button type="button">Next Page</button>
+        </div>
+    </div>
+
+<!--  new!  shipping form（hide）-->
+
+    <div class="form-container" style="display: none">
+        <div class="form-buttons">
+            <button type="button">Go Back</button>
+        </div>
+
+        <h2>Ship To</h2>
+
+        <div class="form-field">
+            <label for="first-name">First Name:</label>
+            <input type="text" id="first-name" placeholder="John">
+        </div>
+
+        <div class="form-field">
+            <label for="last-name">Last Name:</label>
+            <input type="text" id="last-name" placeholder="Doe">
+        </div>
+
+        <div class="form-field">
+            <label for="street">Street:</label>
+            <input type="text" id="street" placeholder="Street Name">
+        </div>
+
+        <div class="form-field">
+            <label for="city">City:</label>
+            <input type="text" id="city" placeholder="City">
+        </div>
+
+        <div class="form-field">
+            <label for="province">Province:</label>
+            <input type="text" id="province" placeholder="Province">
+        </div>
+
+        <div class="form-field">
+            <label for="zip-code-ship">ZIP Code:</label>
+            <input type="text" id="zip-code-ship" placeholder="XXX XXX">
+        </div>
+
+        <div class="form-buttons">
+            <button type="button">Next Page</button>
+        </div>
+    </div>
+
+
+
+
+    </div>
+    
+
+<footer class="signature">
+    <hr>
+    <p class="signature">Web design: Yucheng Chen, Sky Jiang, Haoxin Zeng, Copy right reserved except outside resources.</p>
+    <ul class="signature">
+        <li><a target="_blank" href="https://github.com/uottawa20241seg3125agroup39/lab2-cart" title="Lab Home Page">Home Page</a></li>
+        <li><a href="img/lab2-report.pdf" title="released">Lab Report</a> </li>
+    </ul>
+</footer>
+</body>
+</html>
+
+
