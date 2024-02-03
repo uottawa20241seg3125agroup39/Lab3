@@ -186,3 +186,10 @@ footer {
     padding: 10px;
     border-bottom: 1px solid #ccc;
 }
+
+.selected{
+    font-style: italic;
+}
+.not-selected{
+
+}
