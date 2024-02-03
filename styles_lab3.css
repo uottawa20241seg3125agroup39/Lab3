@@ -172,3 +172,8 @@ footer {
     color: #009688; /* 设置价格范围值的颜色 */
 }
 
+.product-img{
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+}

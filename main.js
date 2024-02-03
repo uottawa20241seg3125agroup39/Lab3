@@ -14,7 +14,8 @@ function loadProducts(category)
         if (category==="normal"||product.category===category)
         {
             element.append(
-                `<input type="checkbox" id="${product.id}" name="${product.name}" value="${product.name}">
+                `<img class="product-img" src="img/product/${product.id}.webp" alt="${product.name}">
+<input type="checkbox" id="${product.id}" name="${product.name}" value="${product.name}">
             <label for="${product.id}">${product.name}</label><br>`
             )
         }
@@ -74,7 +75,8 @@ function addProduct()
         if (this.checked)
         {
             cart.append(
-                `<input type="checkbox" id="${this.id}" name="${this.name}" value="${this.value}">
+                `<img class="product-img" src="img/product/${this.id}.webp" alt="${this.name}">
+<input type="checkbox" id="${this.id}" name="${this.name}" value="${this.value}">
                 <label for="${this.id}">${this.name}</label><br>`
             )
             var label=element.find('label[for="'+this.id+'"]');
@@ -94,7 +96,8 @@ function removeProduct(){
         if (this.checked)
         {
             product.append(
-                `<input type="checkbox" id="${this.id}" name="${this.name}" value="${this.value}">
+                `<img class="product-img" src="img/product/${this.id}.webp" alt="${this.name}">
+<input type="checkbox" id="${this.id}" name="${this.name}" value="${this.value}">
                 <label for="${this.id}">${this.name}</label><br>`
             )
             var label=element.find('label[for="'+this.id+'"]');
