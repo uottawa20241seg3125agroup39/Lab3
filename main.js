@@ -40,6 +40,7 @@ function updateProductEmpty()
 }
 window.onload = function() {
     loadProducts("normal");
+    priceSliderInit();
     $('#user').show();
     $('#loading').hide();
     $('#user-button').addClass('selected').removeClass('not-selected');
