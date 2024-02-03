@@ -32,9 +32,16 @@ function generate_product_element(product) {
     checkbox.attr('value',product.name);
     element.append(checkbox);
     let label=$('<label>');
+    label.addClass('product-label');
     label.attr('for',checkbox_id);
     label.text(product.name);
     element.append(label);
+    // element.append($('<br>'));
+    let price=$('<span>');
+    price.addClass('product-price');
+    price.text(`$${product.price}`);
+
+    element.append(price)
     return element;
 }
 

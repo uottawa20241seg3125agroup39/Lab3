@@ -172,10 +172,12 @@ footer {
     font-weight: bold;
     color: #009688; /* 设置价格范围值的颜色 */
 }
-
+:root{
+    --product-img-width: 80px;
+}
 .product-img{
-    width: 80px;
-    height: 80px;
+    width: var(--product-img-width);
+    height: var(--product-img-width);
     object-fit: cover;
 }
 
@@ -185,6 +187,10 @@ footer {
     align-items: center;
     padding: 10px;
     border-bottom: 1px solid #ccc;
+    height: calc(var(--product-img-width) + 20px);
+    width: auto;
+    overflow: hidden;
+    flex-wrap: wrap;
 }
 
 .selected{
@@ -192,4 +198,16 @@ footer {
 }
 .not-selected{
 
+}
+
+.product-label + .product-price:before {
+    content: "||";
+    display: inline-flex;
+}
+
+.product-price{
+    font-weight: bold;
+    font-style: italic;
+    color: red;
+    font-size: 1.1em;
 }
