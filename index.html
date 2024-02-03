@@ -51,14 +51,15 @@
     </div>
 <!--new! price slider-->
     <div class="price-slider">
-        <div class="min-price">Min price: 0</div>
-        <div class="max-price">Max price: 90</div>
+<!--        <div class="min-price">Min price: 0</div>-->
+<!--        <div class="max-price">Max price: 90</div>-->
         <label for="minPrice">Min price:</label>
-        <input type="range" id="minPrice" class="slider" min="0" max="100" value="10" oninput="rangeValue.innerText = this.value">
-        <p id="rangeValue">100</p> <!----另一种method-->
+        <input type="range" id="minPrice" class="slider" min="0" max="100" value="10" oninput="onMinPriceChange()">
+<!--        <p id="rangeValue">100</p> &lt;!&ndash;&#45;&#45;另一种method&ndash;&gt;-->
         <label for="maxPrice">Max price:</label>
-        <input type="range" id="maxPrice" class="slider" min="0" max="100" value="90" >
-        <span id="priceRangeValue">$10 - $90</span>
+        <input type="range" id="maxPrice" class="slider" min="0" max="100" value="90"
+        oninput="onMaxPriceChange()">
+        <span id="priceRangeValue">$<span id="min_price_display">114514</span> - $<span id="max_price_display">1919810</span></span>
     </div>
 
     <div id="productList" class="product-list">
