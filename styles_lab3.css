@@ -178,3 +178,11 @@ footer {
     height: 80px;
     object-fit: cover;
 }
+
+.product-element{
+    display: flex inline;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}

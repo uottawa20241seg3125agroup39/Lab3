@@ -1,3 +1,5 @@
+// noinspection HtmlRequiredAltAttribute,RequiredAttributes
+
 const products = [
     {"id": 'product-1', "name": "beef pizza", "category": "normal","price": 10.00},
     {"id": 'product-2', "name": "chicken pizza", "category": "normal","price": 20.00},
@@ -10,3 +12,28 @@ const products = [
     {"id": 'product-9', "name": "sausage pizza", "category": "normal","price":90.00},
     {"id": 'product-10', "name": "plain pizza", "category": "normal","price":100.00},
 ];
+function generate_product_element(product) {
+//     `<img class="product-img" src="img/product/${product.id}.webp" alt="${product.name}">
+// <input type="checkbox" id="${product.id}" name="${product.name}" value="${product.name}">
+//             <label for="${product.id}">${product.name}</label><br>`
+    let element=$('<div>');
+    element.addClass('product-element');
+    element.attr('id',product.id);
+    let img=$('<img>');
+    img.addClass('product-img');
+    img.attr('src',`img/product/${product.id}.webp`);
+    img.attr('alt',product.name);
+    element.append(img);
+    let checkbox=$('<input>');
+    checkbox.attr('type','checkbox');
+    let checkbox_id=product.id+'-checkbox';
+    checkbox.attr('id',checkbox_id);
+    checkbox.attr('name',product.name);
+    checkbox.attr('value',product.name);
+    element.append(checkbox);
+    let label=$('<label>');
+    label.attr('for',checkbox_id);
+    label.text(product.name);
+    element.append(label);
+    return element;
+}

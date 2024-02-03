@@ -14,9 +14,7 @@ function loadProducts(category)
         if (category==="normal"||product.category===category)
         {
             element.append(
-                `<img class="product-img" src="img/product/${product.id}.webp" alt="${product.name}">
-<input type="checkbox" id="${product.id}" name="${product.name}" value="${product.name}">
-            <label for="${product.id}">${product.name}</label><br>`
+                generate_product_element(product)
             )
         }
 
