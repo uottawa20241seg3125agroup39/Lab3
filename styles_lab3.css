@@ -54,10 +54,23 @@ footer {
 .font-change-btn {
     font-size: 20px;
 }
-.search-bar input[type=text] {
-    padding: 6px;
+
+.search-bar{
+    display: flex;
+    margin-bottom: 5px;
     margin-top: 8px;
-    font-size: 17px;
+}
+
+.search-bar input[type=text] {
+
+    font-size: 30px;
+    flex-grow: 1;
+    height: auto;
+    padding: 0;
+    border: none;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
   }
 
 .search-bar button {
@@ -67,6 +80,12 @@ footer {
   background: #ddd;
   font-size: 17px;
   cursor: pointer;
+}
+
+.search-bar img{
+    width: 40px;
+    height: auto;
+    margin-right: 5px;
 }
 
 .price-slider {

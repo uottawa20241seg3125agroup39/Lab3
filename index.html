@@ -42,12 +42,12 @@
     <div class="font-change" hidden="hidden">
         <button class="font-change-btn" onClick="toggleFontSize('products')"></button>
     </div>
-    <h2>Products</h2>
+    <h2 style="text-align: center;">Products</h2>
     <hr>
 <!--    new! search bar-->
     <div class = "search-bar">
-        <input type="text" id="search-input" placeholder="search for your ..." oninput="onSearch()">
-        <button type="submit"><i class="itemSearch"></i></button>
+        <label for="search-input"><img src="img/search.webp" alt="Search Products ..."> </label><input type="text" id="search-input" placeholder="search for your ..." oninput="onSearch()" maxlength="20">
+        <button type="submit" hidden="hidden"><i class="itemSearch"></i></button>
     </div>
 <!--new! price slider-->
     <div class="price-slider">

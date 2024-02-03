@@ -42,6 +42,7 @@ function generate_product_element(product) {
     price.text(`$${product.price}`);
 
     element.append(price)
+    element.data('product',product);
     return element;
 }
 
