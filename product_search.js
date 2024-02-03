@@ -9,7 +9,31 @@ const filter={
     max_price: 100
 }
 function updateFilter(){
-
+    let products=$('#product-selection');
+    products.children().each(() => {
+        $(this).show();
+    })
+    products.children().each(() => {
+        let info=$(this).data('product');
+        console.log(products);
+        console.log(this);
+        console.log($(this));
+        console.log(products.children())
+        console.log(info);
+        console.log($(this).data());
+        if (!(filter.name.length === 0||filter.name === ''))
+        {
+            if (!info.name.includes(filter.name))
+            {
+                $(this).hide();
+            }
+        }
+        if (info.price<filter.min_price||info.price>filter.max_price)
+        {
+            $(this).hide();
+        }
+    })
+    console.log('filter updated');
 }
 
 function onMinPriceChange(){

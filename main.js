@@ -98,6 +98,7 @@ function removeProduct(){
             // this.remove();
         }
     })
+    updateFilter();
     updateCartEmpty();
     updateProductEmpty();
     console.log("products removed from cart");

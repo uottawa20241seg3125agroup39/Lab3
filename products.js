@@ -43,6 +43,7 @@ function generate_product_element(product) {
 
     element.append(price)
     element.data('product',product);
+    // console.log(element.data());
     return element;
 }
 
