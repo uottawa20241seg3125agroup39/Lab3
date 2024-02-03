@@ -70,17 +70,13 @@ function addProduct()
     const element=$('#product-selection');
     const cart=$('#cart-selection');
     element.children().each(function () {
-        if (this.checked)
+        if (is_selected(this))
         {
+            $(this).find('input').prop('checked',false);
             cart.append(
-                `<img class="product-img" src="img/product/${this.id}.webp" alt="${this.name}">
-<input type="checkbox" id="${this.id}" name="${this.name}" value="${this.value}">
-                <label for="${this.id}">${this.name}</label><br>`
+                this
             )
-            var label=element.find('label[for="'+this.id+'"]');
-            label.next("br").remove();
-            label.remove();
-            this.remove();
+            // this.remove();
         }
     })
     updateCartEmpty();
@@ -91,17 +87,14 @@ function removeProduct(){
     const element=$('#cart-selection');
     const product=$('#product-selection');
     element.children().each(function () {
-        if (this.checked)
+        if (is_selected(this))
         {
+            $(this).find('input').prop('checked',false);
             product.append(
-                `<img class="product-img" src="img/product/${this.id}.webp" alt="${this.name}">
-<input type="checkbox" id="${this.id}" name="${this.name}" value="${this.value}">
-                <label for="${this.id}">${this.name}</label><br>`
+                this
             )
-            var label=element.find('label[for="'+this.id+'"]');
-            label.next("br").remove();
-            label.remove();
-            this.remove();
+
+            // this.remove();
         }
     })
     updateCartEmpty();

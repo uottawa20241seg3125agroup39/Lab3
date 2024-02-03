@@ -37,3 +37,9 @@ function generate_product_element(product) {
     element.append(label);
     return element;
 }
+
+function is_selected(product_element)
+{
+    // console.log(product_element);
+    return $(product_element).find('input').is(':checked');
+}
