@@ -15,6 +15,7 @@ function loadProducts(category)
         {
             element.append(
                 generate_product_element(product)
+
             )
         }
 

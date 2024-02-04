@@ -10,17 +10,17 @@ const filter={
 }
 function updateFilter(){
     let products=$('#product-selection');
-    products.children().each(() => {
+    products.children().each(function() {
         $(this).show();
     })
-    products.children().each(() => {
+    products.children().each(function() {
         let info=$(this).data('product');
-        console.log(products);
-        console.log(this);
-        console.log($(this));
-        console.log(products.children())
-        console.log(info);
-        console.log($(this).data());
+        // console.log(products);
+        // console.log(this);
+        // console.log($(this));
+        // console.log(products.children())
+        // console.log(info);
+        // console.log($(this).data());
         if (!(filter.name.length === 0||filter.name === ''))
         {
             if (!info.name.includes(filter.name))
