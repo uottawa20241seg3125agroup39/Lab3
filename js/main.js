@@ -52,11 +52,11 @@ window.onload = function() {
 function updateCartEmpty() {
     const element = $('#cart-selection');
     if (element.children().length > 0) {
-        $('#cart-submission').show();
+        $('#cart-bar').show();
         $('#cart-empty-sign').hide();
         console.log("Cart is not empty");
     } else {
-        $('#cart-submission').hide();
+        $('#cart-bar').hide();
         $('#cart-empty-sign').show();
         console.log("Cart is empty");
     }
