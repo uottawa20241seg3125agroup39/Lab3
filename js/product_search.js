@@ -25,15 +25,24 @@ function updateFilter(){
         {
             if (!info.name.includes(filter.name))
             {
-                $(this).hide();
+                hideProduct(this);
             }
         }
         if (info.price<filter.min_price||info.price>filter.max_price)
         {
-            $(this).hide();
+            hideProduct(this);
         }
     })
+    updateProductEmpty();
     console.log('filter updated');
+}
+
+function hideProduct(product){
+    $(product).hide();
+    if (is_selected(product))
+    {
+        $(product).find('input').prop('checked',false);
+    }
 }
 
 function onMinPriceChange(){

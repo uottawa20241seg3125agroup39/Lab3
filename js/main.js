@@ -5,6 +5,7 @@ function loadpage(event, pageName) {
     shown.show();
     $('.selected').toggleClass('selected not-selected');
     $('#'+pageName+'-button').toggleClass('selected not-selected');
+    updateProductEmpty();
     console.log(`page switch to ${pageName}`);
 }
 function loadProducts(category)
@@ -27,7 +28,8 @@ function loadProducts(category)
 function updateProductEmpty()
 {
     const element=$('#product-selection')
-    if (element.children().length>0)
+    let not_empty=element.children().is(":visible");
+    if (not_empty)
     {
         $('#select-submission').show();
         $('#empty-sign').hide();
