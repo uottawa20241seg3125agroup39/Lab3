@@ -44,6 +44,7 @@ function updateProductEmpty()
 window.onload = function() {
     loadProducts("normal");
     priceSliderInit();
+    cart_init();
     $('#user').show();
     $('#loading').hide();
     $('#user-button').addClass('selected').removeClass('not-selected');
